@@ -1,0 +1,27 @@
+# Get cluster info
+kubectl cluster-info
+
+# View all pods in all namespaces
+kubectl get pods --all-namespaces
+
+# Describe a specific pod
+kubectl describe pod <pod-name> -n <namespace>
+
+# Debug into a pod
+kubectl exec -it <pod-name> -- /bin/bash
+
+# Apply a manifest
+kubectl apply -f <file>.yaml
+
+# Delete a resource
+kubectl delete -f <file>.yaml
+
+
+#📌 Examples
+✅ Deploy an NGINX Web Server
+kubectl apply -f manifests/nginx-deployment.yaml
+kubectl expose deployment nginx-deployment --type=LoadBalancer --port=80
+
+🧹 Clean Up
+kubectl delete deployment nginx-deployment
+kubectl delete service nginx-deployment
